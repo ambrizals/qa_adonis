@@ -1,0 +1,6 @@
+<p>Anda berhasil login, ingin keluar ?</p>
+
+<form action="{{ route('auth.logout') }}" method="post">
+  {{ csrfField() }}
+  <button type="submit">Keluar Sekarang</button>
+</form>
