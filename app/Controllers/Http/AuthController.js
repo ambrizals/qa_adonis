@@ -8,8 +8,7 @@ class AuthController {
   async login({ request, auth, response }) {
     const { username, password } = request.all();
     await auth.attempt(username, password);
-
-    return response.route("auth.check");
+    return response.route("auth.account");
   }
 
   async logout({ auth, response }) {
@@ -17,8 +16,8 @@ class AuthController {
     return response.route("auth.loginForm");
   }
 
-  async check({ view }) {
-    return view.render("auth.check");
+  async account({ view }) {
+    return view.render("auth.account");
   }
 }
 

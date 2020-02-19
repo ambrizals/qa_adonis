@@ -11,7 +11,7 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-const Factory = use("Factory");
+// const Factory = use("Factory");
 const Hash = use("Hash");
 const Database = use("Database");
 const Moment = use("moment");
@@ -22,8 +22,8 @@ class UserSeeder {
       username: "admin",
       email: "admin@localhost.com",
       password: await Hash.make("admin1234"),
-      created_at: await Moment().format("YYYY-MM-DD HH:MM:SS"),
-      updated_at: await Moment().format("YYYY-MM-DD HH:MM:SS")
+      updated_at: await Moment().format("YYYY-MM-DD"),
+      created_at: await Moment().format("YYYY-MM-DD")
     });
     console.log(user);
   }

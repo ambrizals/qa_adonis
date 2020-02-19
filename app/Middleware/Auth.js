@@ -13,9 +13,11 @@ class Auth {
     // call next to advance the request
     try {
       await auth.check();
+
+      // Jika user telah melakukan login, halaman ditampilkan
       await next();
     } catch (err) {
-      console.log(err);
+      // Jika user belum melakukan login, user diarahkan pada halaman login
       return response.route("auth.loginForm");
     }
   }

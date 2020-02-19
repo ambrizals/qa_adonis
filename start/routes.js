@@ -17,13 +17,18 @@
 const Route = use("Route");
 
 Route.on("/").render("welcome");
+
+// Membuat route group dengan prefix auth
 Route.group(function() {
+	// Method get hanya akan berfungsi pada jenis permintaan GET
   Route.get("login", "AuthController.loginForm").as("auth.loginForm");
-  Route.post("login", "AuthController.login").as("auth.login");
-  Route.get("/", "AuthController.check")
-    .as("auth.check")
+  Route.get("/", "AuthController.account")
+    .as("auth.account")
     .middleware("auth");
+
+  // Method post hanya akan berfungsi pada jenis permintaan POST
   Route.post("logout", "AuthController.logout")
     .as("auth.logout")
     .middleware("auth");
+	Route.post("login", "AuthController.login").as("auth.login");
 }).prefix("auth");
