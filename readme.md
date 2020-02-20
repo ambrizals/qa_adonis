@@ -11,4 +11,8 @@ Ada beberapa persyaratan yang anda harus penuhi sebelum menggunakan repositori i
 
 # Commit Log :
 
-Saat ini belum tersedia.
+Adapun daftar perubahan pada repository ini :
+
+## [d0e4b13](https://github.com/ambrizals/qa_adonis/commit/9bee47b139f6063486a34d03496824da83d6bb53) : Basic Authentication
+
+Titik materi pembelajaran adonis dalam membangun sebuah web yang memiliki fitur authentication, pembahasan materi secara penuh dapat dilihat pada [link berikut](https://ambrizal.net/blog/read/adonisjs-pengenalan-modul-basic-authentication)
