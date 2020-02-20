@@ -1,6 +1,32 @@
-<p>Anda berhasil login, ingin keluar ?</p>
-
-<form action="{{ route('auth.logout') }}" method="post">
-  {{ csrfField() }}
-  <button type="submit">Keluar Sekarang</button>
-</form>
+@layout('layouts.default')
+@section('title')
+  <title>Akun</title>
+@endsection
+@section('hero')
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Pengaturan Akun
+      </h1>
+      <h2 class="subtitle">
+        {{ auth.user.username }}
+      </h2>
+    </div>
+  </div>
+</section>
+@endsection
+@section('content')
+<div class="box">
+  <form action="#" method="post">
+    {{ csrfField() }}
+    <div class="field">
+      <label for="username" class="label">Username :</label>
+      <div class="control">
+        <input type="text" name="username" placeholder="Masukkan Username" class="input" value="{{ auth.user.username }}" />
+      </div>
+    </div>
+    <button type="submit" class="button">Perbarui</button>
+  </form>  
+</div>
+@endsection

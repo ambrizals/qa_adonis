@@ -20,8 +20,10 @@ Route.on("/").render("welcome");
 
 // Membuat route group dengan prefix auth
 Route.group(function() {
-	// Method get hanya akan berfungsi pada jenis permintaan GET
-  Route.get("login", "AuthController.loginForm").as("auth.loginForm");
+  // Method get hanya akan berfungsi pada jenis permintaan GET
+  Route.get("login", "AuthController.loginForm")
+    .as("auth.loginForm")
+    .middleware("guestCustom");
   Route.get("/", "AuthController.account")
     .as("auth.account")
     .middleware("auth");
@@ -30,5 +32,7 @@ Route.group(function() {
   Route.post("logout", "AuthController.logout")
     .as("auth.logout")
     .middleware("auth");
-	Route.post("login", "AuthController.login").as("auth.login");
+  Route.post("login", "AuthController.login")
+    .as("auth.login")
+    .middleware(["guest"]);
 }).prefix("auth");

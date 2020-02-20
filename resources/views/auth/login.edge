@@ -1,12 +1,38 @@
-<form action="{{ route('auth.login') }}" method="post">
-  {{ csrfField() }}
-  <div>
-    <label for="username">Username :</label>
-    <input type="text" name="username" placeholder="Masukkan Username" />
+@layout('layouts.default')
+@section('title')
+  <title>Login</title>
+@endsection
+@section('hero')
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Masuk
+      </h1>
+      <h2 class="subtitle">
+        Silahkan masuk untuk melanjutkan diskusi
+      </h2>
+    </div>
   </div>
-  <div>
-    <label for="password">Password :</label>
-    <input type="password" name="password" placeholder="Masukkan Password" />
-  </div>
-  <button type="submit">Login</button>
-</form>
+</section>
+@endsection
+@section('content')
+<div class="box">
+  <form action="{{ route('auth.login') }}" method="post">
+    {{ csrfField() }}
+    <div class="field">
+      <label for="username" class="label">Username :</label>
+      <div class="control">
+        <input type="text" name="username" placeholder="Masukkan Username" class="input" />
+      </div>
+    </div>
+    <div class="field">
+      <label for="password" class="label">Password :</label>
+      <div class="control">
+        <input type="password" name="password" placeholder="Masukkan Password" class="input" />
+      </div>
+    </div>
+    <button type="submit" class="button">Login</button>
+  </form>  
+</div>
+@endsection

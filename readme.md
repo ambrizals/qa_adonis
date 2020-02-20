@@ -9,9 +9,15 @@ Ada beberapa persyaratan yang anda harus penuhi sebelum menggunakan repositori i
 - Telah mengerti sedikit tidaknya mengenai Javascript, anda dapat mencari materi - materi tersebut di Internet namun saya dapat rekomendasikan untuk melihat playlist youtube pada [link berikut](https://www.youtube.com/watch?v=RUTV_5m4VeI&list=PLFIM0718LjIWXagluzROrA-iBY9eeUt4w) dan [link ini](https://www.youtube.com/watch?v=RwT41El778A&list=PLFIM0718LjIUGpY8wmE41W7rTJo_3Y46-)
 - Setiap perubahan atau penambahan commit pada repositori ini akan mengarah pada sebuah tutorial yang akan dikaitkan pada file ini.
 
+# Penggunaan Paket Tambahan
+
+Repositori ini menggunakan paket tambahan, paket tambahan ini mungkin tidak akan dijelaskan pada sebuah materi karena bersifat opsional.
+
+- [Bulma](https://bulma.io/)
+
 # Commit Log :
 
-Adapun daftar perubahan pada repository ini :
+Adapun daftar perubahan pada repositori ini :
 
 ## [d0e4b13](https://github.com/ambrizals/qa_adonis/commit/9bee47b139f6063486a34d03496824da83d6bb53) : Basic Authentication
 
