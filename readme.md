@@ -22,3 +22,7 @@ Adapun daftar perubahan pada repositori ini :
 ## [d0e4b13](https://github.com/ambrizals/qa_adonis/commit/9bee47b139f6063486a34d03496824da83d6bb53) : Basic Authentication
 
 Titik materi pembelajaran adonis dalam membangun sebuah web yang memiliki fitur authentication, pembahasan materi secara penuh dapat dilihat pada [link berikut](https://ambrizal.net/blog/read/adonisjs-pengenalan-modul-basic-authentication)
+
+## [f5479dd2](https://github.com/ambrizals/qa_adonis/commit/f5479dd263ed498e58816072da5e54b18612eace) : Pengenalan Template Engine Edge
+
+Titik materi pembelajaran adonis dalam mengetahui cara kerja template engine adonis yang bernama edge, pembahasan materi secara penuh dapat dilihat pada [link berikut](https://ambrizal.net/blog/read/adonisjs-pengenalan-template-engine-edge)
