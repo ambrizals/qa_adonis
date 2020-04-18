@@ -19,13 +19,21 @@ const Route = use("Route");
 Route.on("/").render("welcome");
 
 // Membuat route group dengan prefix auth
-Route.group(function() {
+Route.group(function () {
   // Method get hanya akan berfungsi pada jenis permintaan GET
   Route.get("login", "AuthController.loginForm")
     .as("auth.loginForm")
     .middleware("guestCustom");
   Route.get("/", "AuthController.account")
     .as("auth.account")
+    .middleware("auth");
+
+  Route.get("password", "AuthController.changePassword")
+    .as("auth.changepw")
+    .middleware("auth");
+
+  Route.post("password", "AuthController.updatePassword")
+    .as("auth.updatepw")
     .middleware("auth");
 
   // Method post hanya akan berfungsi pada jenis permintaan POST
@@ -35,4 +43,13 @@ Route.group(function() {
   Route.post("login", "AuthController.login")
     .as("auth.login")
     .middleware(["guest"]);
+
+  Route.get("signup", "AuthController.signUp")
+    .as("auth.signup")
+    .middleware(["guest"]);
+
+  Route.post("signup", "AuthController.createUser")
+    .as("auth.createUser")
+    .middleware(["guest"])
+    .validator("Auth/SignUp");
 }).prefix("auth");

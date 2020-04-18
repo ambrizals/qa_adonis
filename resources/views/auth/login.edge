@@ -18,6 +18,11 @@
 @endsection
 @section('content')
 <div class="box">
+  @if(flashMessage('notification'))
+    <div class="notification is-info">
+      {{ flashMessage('notification') }}
+    </div>
+  @endif    
   <form action="{{ route('auth.login') }}" method="post">
     {{ csrfField() }}
     <div class="field">

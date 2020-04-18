@@ -1,0 +1,60 @@
+@layout('layouts.default')
+@section('title')
+  <title>Pendaftaran Akun</title>
+@endsection
+
+@section('hero')
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Pendaftaran Akun
+      </h1>
+      <h2 class="subtitle">
+        Anda dapat melakukan diskusi setelah bergabung
+      </h2>
+    </div>
+  </div>
+</section>
+@endsection
+
+@section('content')
+<div class="box">
+  @if(flashMessage('notification'))
+    <div class="notification is-info">
+      {{ flashMessage('notification') }}
+    </div>
+  @endif  
+  <form action="{{ route('auth.createUser') }}" method="POST">
+    {{ csrfField() }}
+    <div class="field">
+      <label for="username" class="label">Username</label>
+      <div class="control">
+        <input type="text" name="username" placeholder="Masukkan Username" class="input" required />
+      </div>
+      @if(hasErrorFor('username'))
+        <p class="has-text-danger">{{ getErrorFor('username') }}</p>
+      @endif
+    </div>
+    <div class="field">
+      <label for="email" class="label">Email</label>
+      <div class="control">
+        <input type="email" name="email" placeholder="Masukkan Email" class="input" required />
+      </div>
+      @if(hasErrorFor('email'))
+        <p class="has-text-danger">{{ getErrorFor('email') }}</p>
+      @endif      
+    </div>
+    <div class="field">
+      <label for="password" class="label">Password</label>
+      <div class="control">
+        <input type="password" name="password" placeholder="Masukkan Password" class="input" required />
+      </div>
+      @if(hasErrorFor('password'))
+        <p class="has-text-danger">{{ getErrorFor('password') }}</p>
+      @endif
+    </div>
+    <button type="submit" class="button">Daftar Sekarang</button>
+  </form>
+</div>
+@endsection
