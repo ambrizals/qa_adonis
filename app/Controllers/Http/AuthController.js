@@ -1,7 +1,6 @@
 "use strict";
 
 const User = use("App/Models/User");
-const { validate } = use("Validator");
 const Hash = use("Hash");
 
 class AuthController {
@@ -9,10 +8,42 @@ class AuthController {
     return view.render("auth.login");
   }
 
-  async login({ request, auth, response }) {
+  async login({ request, auth, response, session }) {
     const { username, password } = request.all();
-    await auth.attempt(username, password);
-    return response.route("auth.account");
+    try {
+      await auth.attempt(username, password);
+      return response.route("auth.account");
+    } catch (error) {
+      switch (error.code) {
+        case "E_USER_NOT_FOUND":
+          session.withErrors([
+            {
+              field: "username",
+              message: "Username tidak ditemukan !",
+            },
+          ]);
+          break;
+
+        case "E_PASSWORD_MISMATCH":
+          session.withErrors([
+            {
+              field: "password",
+              message: "Password tidak benar !",
+            },
+          ]);
+          break;
+
+        default:
+          session.withErrors([
+            {
+              field: "error",
+              message: "Terjadi kesalahan pada sistem !",
+            },
+          ]);
+          break;
+      }
+      return response.route("auth.loginForm");
+    }
   }
 
   async logout({ auth, response }) {

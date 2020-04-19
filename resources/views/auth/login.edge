@@ -30,12 +30,18 @@
       <div class="control">
         <input type="text" name="username" placeholder="Masukkan Username" class="input" />
       </div>
+      @if(hasErrorFor('username'))
+        <p class="has-text-danger">{{ getErrorFor('username') }}</p>
+      @endif      
     </div>
     <div class="field">
       <label for="password" class="label">Password :</label>
       <div class="control">
         <input type="password" name="password" placeholder="Masukkan Password" class="input" />
       </div>
+      @if(hasErrorFor('password'))
+        <p class="has-text-danger">{{ getErrorFor('password') }}</p>
+      @endif      
     </div>
     <button type="submit" class="button">Login</button>
   </form>  
