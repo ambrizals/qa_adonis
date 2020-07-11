@@ -1,0 +1,34 @@
+@layout('layouts.admin')
+@section('title')
+  <title>Tambah Kategori</title>
+@endsection
+@section('content')
+<div class="box">
+  <form action="{{ route('category.store') }}" method="post" name="categoryStore">
+    {{ csrfField() }}
+    <div class="field">
+      <label for="name" class="label">Nama Kategori :</label>
+      <div class="control">
+        <input type="text" name="name" placeholder="Masukkan Nama Kategori" class="input" />
+      </div>
+      @if(hasErrorFor('name'))
+        <div class="error-name">
+          <p class="has-text-danger">{{ getErrorFor('name') }}</p>
+        </div>
+      @endif      
+    </div>
+    <div class="field">
+      <label for="description" class="label">Deskripsi Kategori :</label>
+      <div class="control">
+        <input type="text" name="description" placeholder="Masukkan Deskripsi Kategori" class="input" />
+      </div>
+      @if(hasErrorFor('description'))
+        <div class="error-description">
+          <p class="has-text-danger">{{ getErrorFor('description') }}</p>
+        </div>
+      @endif      
+    </div>
+    <button type="submit" class="button">Tambah Kategori</button>
+  </form>  
+</div>
+@endsection

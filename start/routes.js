@@ -16,7 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-Route.on("/").render("welcome");
+// Route.on("/").render("welcome");
 
 // Membuat route group dengan prefix auth
 Route.group(function () {
@@ -56,7 +56,7 @@ Route.group(function () {
 
 Route.group(function () {
   Route.get("/", "DashboardController.index").as("dashboard.index");
-  Route.resource("forum", "ForumController");
+  Route.resource("category", "CategoryController");
 })
   .prefix("admin")
   .namespace("Admin")

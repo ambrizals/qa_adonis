@@ -31,6 +31,11 @@
           </a>
 
           <div class="navbar-dropdown is-right">
+            @if(auth.user.is_admin)
+            <a class="navbar-item" href="{{ route('dashboard.index') }}">
+              Pengaturan Admin
+            </a>
+            @endif
             <a class="navbar-item" href="{{ route('auth.account') }}">
               Pengaturan
             </a>

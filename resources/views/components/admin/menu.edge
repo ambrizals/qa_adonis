@@ -1,0 +1,72 @@
+<nav class="navbar is-primary mb-3" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+    <a class="navbar-item" href="{{ route('/') }}">
+        QA Adonis
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a href="{{ route('dashboard.index') }}" class="navbar-item">
+          Halaman Awal
+        </a>
+
+        <a class="navbar-item">
+          Daftar Anggota
+        </a>
+
+        <a href="{{ route('category.index') }}" class="navbar-item">
+          Daftar Kategori
+        </a>
+      </div>
+
+      @loggedIn
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Hi, {{ auth.user.username }}
+          </a>
+
+          <div class="navbar-dropdown is-right">
+            @if(auth.user.is_admin)
+            <a class="navbar-item" href="{{ route('dashboard.index') }}">
+              Pengaturan Admin
+            </a>
+            @endif
+            <a class="navbar-item" href="{{ route('auth.account') }}">
+              Pengaturan
+            </a>
+            <a class="navbar-item" onclick="logout()">
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <form action="{{ route('auth.logout') }}" method="post" id="formLogout">
+        {{ csrfField() }}
+      </form>    
+      @else
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary" href="{{ route('auth.signup') }}">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light" href="{{ route('auth.loginForm') }}">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+      @endloggedIn    
+    </div>
+  </div>
+</nav>

@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| UserSeeder
+| CreateCategorySeeder
 |--------------------------------------------------------------------------
 |
 | Make use of the Factory instance to seed database with dummy data or
@@ -11,23 +11,18 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-// const Factory = use("Factory");
-const Hash = use("Hash");
 const Database = use("Database");
 const Moment = use("moment");
 
-class UserSeeder {
+class CreateCategorySeeder {
   async run() {
-    const user = await Database.table("users").insert({
-      username: "admin",
-      email: "admin@localhost.com",
-      password: await Hash.make("admin1234"),
+    const category = await Database.table("categories").insert({
+      name: "General",
+      description: "General Category",
       updated_at: await Moment().format("YYYY-MM-DD"),
       created_at: await Moment().format("YYYY-MM-DD"),
-      is_admin: true,
-      is_moderator: false,
     });
   }
 }
 
-module.exports = UserSeeder;
+module.exports = CreateCategorySeeder;
