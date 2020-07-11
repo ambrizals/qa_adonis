@@ -53,3 +53,11 @@ Route.group(function () {
     .middleware(["guest"])
     .validator("Auth/SignUp");
 }).prefix("auth");
+
+Route.group(function () {
+  Route.get("/", "DashboardController.index").as("dashboard.index");
+  Route.resource("forum", "ForumController");
+})
+  .prefix("admin")
+  .namespace("Admin")
+  .middleware("admin");

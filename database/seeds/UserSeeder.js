@@ -23,7 +23,9 @@ class UserSeeder {
       email: "admin@localhost.com",
       password: await Hash.make("admin1234"),
       updated_at: await Moment().format("YYYY-MM-DD"),
-      created_at: await Moment().format("YYYY-MM-DD")
+      created_at: await Moment().format("YYYY-MM-DD"),
+      is_admin: true,
+      is_moderator: false,
     });
     console.log(user);
   }

@@ -23,7 +23,7 @@
       {{ flashMessage('notification') }}
     </div>
   @endif    
-  <form action="{{ route('auth.login') }}" method="post">
+  <form action="{{ route('auth.login') }}" method="post" name="loginForm">
     {{ csrfField() }}
     <div class="field">
       <label for="username" class="label">Username :</label>
@@ -31,7 +31,9 @@
         <input type="text" name="username" placeholder="Masukkan Username" class="input" />
       </div>
       @if(hasErrorFor('username'))
-        <p class="has-text-danger">{{ getErrorFor('username') }}</p>
+        <div class="error-user">
+          <p class="has-text-danger">{{ getErrorFor('username') }}</p>
+        </div>
       @endif      
     </div>
     <div class="field">
@@ -40,7 +42,9 @@
         <input type="password" name="password" placeholder="Masukkan Password" class="input" />
       </div>
       @if(hasErrorFor('password'))
-        <p class="has-text-danger">{{ getErrorFor('password') }}</p>
+        <div class="error-password">
+          <p class="has-text-danger">{{ getErrorFor('password') }}</p>
+        </div>
       @endif      
     </div>
     <button type="submit" class="button">Login</button>

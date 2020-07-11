@@ -1,5 +1,7 @@
 "use strict";
 
+const session = use("@adonisjs/session/providers/SessionProvider");
+
 class AuthSignUp {
   get rules() {
     return {
